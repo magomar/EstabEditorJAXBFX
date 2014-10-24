@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>net.deludobellico</groupId>
+    <artifactId>estabeditor-jaxbfx</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.jvnet.jaxb2.maven2</groupId>
+                <artifactId>maven-jaxb22-plugin</artifactId>
+                <version>0.9.0</version>
+                <executions>
+                    <execution>
+                        <id>xsd-generate-2.1</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <schemaIncludes>
+                        <schemaInclude>**/*.xsd</schemaInclude>
+                    </schemaIncludes>
+                    <strict>true</strict>
+                    <extension>true</extension>
+                    <removeOldOutput>true</removeOldOutput>
+                    <args>
+                        <arg>-Xgenerate-fx-properties</arg>
+                    </args>
+                    <plugins>
+                        <plugin>
+                            <groupId>com.buschmais.jaxbfx</groupId>
+                            <artifactId>jaxbfx-plugin-h</artifactId>
+                            <version>1.0-SNAPSHOT</version>
+                        </plugin>
+                    </plugins>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <compilerArguments>
+                        <bootclasspath>${sun.boot.class.path}${path.separator}${java.home}/lib/jfxrt.jar</bootclasspath>
+                    </compilerArguments>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
