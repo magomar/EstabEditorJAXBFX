@@ -197,7 +197,7 @@
             <xs:element name="type" type="VehicleType"/>
             <xs:element name="fuel-capacity" type="xs:float"/>
             <xs:element name="speed" type="VehicleSpeeds"/>
-            <xs:element name="fuel-consumption" type="FuelComsumption"/>
+            <xs:element name="fuel-consumption" type="FuelConsumption"/>
             <xs:element name="ronsonability" type="Proportion"/>
             <xs:element name="max-gradient" type="xs:byte"/>
             <xs:element name="max-fording-depth" type="xs:byte"/>
@@ -426,7 +426,7 @@
             <xs:attribute name="normal" type="xs:float"/>
     </xs:complexType>
 
-    <xs:complexType name="FuelComsumption">
+    <xs:complexType name="FuelConsumption">
         <xs:attribute name="max" type="xs:float"/>
         <xs:attribute name="normal" type="xs:float"/>
     </xs:complexType>

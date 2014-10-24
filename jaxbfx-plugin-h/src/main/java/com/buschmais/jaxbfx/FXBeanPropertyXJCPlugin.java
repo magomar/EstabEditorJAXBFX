@@ -172,16 +172,9 @@ public class FXBeanPropertyXJCPlugin extends Plugin {
         /*
          * @author Heine
          * XJC doesn't invoke the setters when unmarshalling. Using the PROPERTY accessor type doesn't fix it either.
-         * This is a dirty workaround. The getter invokes the setter if the property value is null or zero.
+         * This is a dirty workaround where the getter invokes the setter first.
          */
-        JExpression defaultValueExpr = JExpr._null();
-        //if(propertyType.name().toLowerCase().contains("object") || propertyType.name().toLowerCase().contains("string")){
-        //    defaultValueExpr = JExpr._null();
-        //}
-        if (propertyType.name().toLowerCase().contains("int") || propertyType.name().toLowerCase().contains("float")){
-            defaultValueExpr = JExpr.lit(0);
-        }
-        nGetter.body()._if(JExpr._this().ref(nFieldVar).invoke("get").eq(defaultValueExpr))._then().add(JExpr.invoke(JExpr._this().ref(nFieldVar), "set").arg(JExpr.ref(oPrivateFieldName)));
+        nGetter.body().add(JExpr.invoke(JExpr._this().ref(nFieldVar), "set").arg(JExpr.ref(oPrivateFieldName)));
         /*
          */
 
