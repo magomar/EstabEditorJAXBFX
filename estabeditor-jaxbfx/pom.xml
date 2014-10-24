@@ -27,6 +27,7 @@
                     <schemaIncludes>
                         <schemaInclude>**/*.xsd</schemaInclude>
                     </schemaIncludes>
+                    <generatePackage>net.deludobellico.stabeditor.data.jaxb</generatePackage>
                     <strict>true</strict>
                     <extension>true</extension>
                     <removeOldOutput>true</removeOldOutput>
