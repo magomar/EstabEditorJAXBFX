@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
@@ -29,12 +29,19 @@
                     </schemaIncludes>
                     <generatePackage>net.deludobellico.stabeditor.data.jaxb</generatePackage>
                     <strict>true</strict>
+                    <verbose>true</verbose>
                     <extension>true</extension>
                     <removeOldOutput>true</removeOldOutput>
                     <args>
+                        <arg>-Xannotate</arg>
                         <arg>-Xgenerate-fx-properties</arg>
                     </args>
                     <plugins>
+                        <plugin>
+                            <groupId>org.jvnet.jaxb2_commons</groupId>
+                            <artifactId>jaxb2-basics-annotate</artifactId>
+                            <version>1.0.2-SNAPSHOT</version>
+                        </plugin>
                         <plugin>
                             <groupId>com.buschmais.jaxbfx</groupId>
                             <artifactId>jaxbfx-plugin-h</artifactId>
