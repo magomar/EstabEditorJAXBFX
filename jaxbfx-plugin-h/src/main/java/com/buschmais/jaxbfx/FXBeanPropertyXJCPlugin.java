@@ -175,6 +175,9 @@ public class FXBeanPropertyXJCPlugin extends Plugin {
 
         /*
          * @author Heine
+         *
+         * Finally all of this is unnecessary:
+         *
          * XJC doesn't invoke the setters when unmarshalling. Using the PROPERTY accessor type doesn't fix it either.
          * This is a dirty workaround where the getter invokes the setter first.
          */
@@ -227,11 +230,26 @@ public class FXBeanPropertyXJCPlugin extends Plugin {
         implClass.methods().remove(oGetter);
         JMethod nGetter = implClass.method(JMod.PUBLIC, codeModel.ref(plainType.fullName()).narrow(elementType), getterName);
         JClass narrowedWrapperType = ((JClass) simplePropertyType).narrow(elementType);
-        JBlock ifBlock = nGetter.body()._if(collectionField.eq(JExpr._null()))._then();
+
+
+        //JBlock ifBlock = nGetter.body()._if(collectionField.eq(JExpr._null()))._elseif(JExpr._null())._then();
         JClass arrayListType = (JClass) codeModel.parseType(JAVA_UTIL_ARRAYLIST);
-        JVar backingList = ifBlock.decl(plainType, "backingList", JExpr._new(arrayListType.narrow(elementType)));
         JClass jxCollectionsType = (JClass) codeModel.parseType(JAVAFX_FXCOLLECTIONS);
-        ifBlock.assign(collectionField, JExpr._new(narrowedWrapperType).arg(jxCollectionsType.staticInvoke("observableArrayList").arg(backingList)));
+
+
+        /*
+         * @author Heine
+         * The cast always throws exceptions. Little patch to stop them.
+         */
+        JConditional ifBlockCond = nGetter.body()._if(collectionField.eq(JExpr._null()));
+        JVar backingList = ifBlockCond._then().decl(plainType, "backingList", JExpr._new(arrayListType.narrow(elementType)));
+        ifBlockCond._then().assign(collectionField, JExpr._new(narrowedWrapperType).arg(jxCollectionsType.staticInvoke("observableArrayList").arg(backingList)));
+        ifBlockCond._elseif(collectionField._instanceof(codeModel.parseType(JAVA_UTIL_ARRAYLIST)))._then()
+                .assign(collectionField, JExpr._new(narrowedWrapperType).arg(jxCollectionsType.staticInvoke("observableArrayList").arg(collectionField)));
+        /*
+         *
+         */
+
         JVar wrapperVar = nGetter.body().decl(narrowedWrapperType, oPrivateFieldName + "Wrapper", JExpr.cast(narrowedWrapperType, JExpr._this().ref(collectionField)));
         nGetter.body()._return(wrapperVar.invoke("get"));
         nGetter.javadoc().append(javadoc);
@@ -241,6 +259,20 @@ public class FXBeanPropertyXJCPlugin extends Plugin {
         JMethod propertyGetter = implClass.method(JMod.PUBLIC, narrowedPropertyType, propertyGetterName);
         propertyGetter.javadoc().append(GENERATED_BY_DOC_COMMENT);
         propertyGetter.body()._return(JExpr.cast(narrowedPropertyType, JExpr._this().ref(collectionField)));
+
+        /*
+         * @author Heine
+         * Yes, we DO need the setter for the marshalling and unmarshalling.
+         */
+        String setterName = "set" + oPublicFieldName;
+        JMethod setter = implClass.method(JMod.PUBLIC, (JType)JType.parse(codeModel,"void"), setterName);
+        setter.param(codeModel.ref(plainType.fullName()).narrow(elementType), oPrivateFieldName);
+        setter.body().assign(JExpr._this().ref(collectionField), collectionField);
+
+        /*
+         *
+         *
+         */
     }
 
     private void clearAllAnnotations(JDefinedClass clazz) {

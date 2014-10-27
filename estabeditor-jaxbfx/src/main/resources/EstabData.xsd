@@ -20,7 +20,7 @@
                 <xs:element ref="ammo" maxOccurs="unbounded" minOccurs="1"/>
                 <xs:element ref="formation-effects" maxOccurs="unbounded" minOccurs="1"/>
             </xs:sequence>
-            <xs:attribute name="version" type="xs:byte"/>
+            <xs:attribute name="version" type="xs:int"/>
         </xs:complexType>
     </xs:element>
 
@@ -35,7 +35,7 @@
     <!-- Images -->
 
     <xs:complexType name="Image">
-        <xs:attribute name="id" type="xs:short" use="required">
+        <xs:attribute name="id" type="xs:int" use="required">
             <xs:annotation>
                 <xs:appinfo>
                     <annox:annotate target="setter">@javax.xml.bind.annotation.XmlAttribute(required=true,name="id")
@@ -102,7 +102,7 @@
                     </xs:appinfo>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="default-enemy-aper-fp" type="xs:byte">
+            <xs:element name="default-enemy-aper-fp" type="xs:int">
                 <xs:annotation>
                     <xs:appinfo>
                         <annox:annotate target="setter">
@@ -111,7 +111,7 @@
                     </xs:appinfo>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="default-enemy-aarm-fp" type="xs:byte">
+            <xs:element name="default-enemy-aarm-fp" type="xs:int">
                 <xs:annotation>
                     <xs:appinfo>
                         <annox:annotate target="setter">
@@ -122,7 +122,7 @@
             </xs:element>
             <xs:element name="nation" type="Nation" maxOccurs="unbounded" minOccurs="0"/>
         </xs:sequence>
-        <xs:attribute name="id" type="xs:byte" use="required">
+        <xs:attribute name="id" type="xs:int" use="required">
             <xs:annotation>
                 <xs:appinfo>
                     <annox:annotate target="setter">@javax.xml.bind.annotation.XmlAttribute(required=true,name="id")
@@ -178,7 +178,7 @@
             </xs:element>
             <xs:element name="service" type="Service" maxOccurs="unbounded" minOccurs="0"/>
         </xs:sequence>
-        <xs:attribute name="id" type="xs:short" use="required">
+        <xs:attribute name="id" type="xs:int" use="required">
             <xs:annotation>
                 <xs:appinfo>
                     <annox:annotate target="setter">@javax.xml.bind.annotation.XmlAttribute(required=true,name="id")
@@ -244,7 +244,7 @@
             </xs:element>
             <xs:element name="force" type="Force" maxOccurs="unbounded" minOccurs="0"/>
         </xs:sequence>
-        <xs:attribute name="id" type="xs:short" use="required">
+        <xs:attribute name="id" type="xs:int" use="required">
             <xs:annotation>
                 <xs:appinfo>
                     <annox:annotate target="setter">@javax.xml.bind.annotation.XmlAttribute(required=true,name="id")
@@ -399,7 +399,7 @@
                     </xs:appinfo>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="infantry-value" type="xs:short">
+            <xs:element name="infantry-value" type="xs:int">
                 <xs:annotation>
                     <xs:appinfo>
                         <annox:annotate target="setter">@javax.xml.bind.annotation.XmlElement(name="infantry-value")
@@ -407,7 +407,7 @@
                     </xs:appinfo>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="recon-value" type="xs:short">
+            <xs:element name="recon-value" type="xs:int">
                 <xs:annotation>
                     <xs:appinfo>
                         <annox:annotate target="setter">@javax.xml.bind.annotation.XmlElement(name="recon-value")
@@ -415,7 +415,7 @@
                     </xs:appinfo>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="engineering-value" type="xs:byte">
+            <xs:element name="engineering-value" type="xs:int">
                 <xs:annotation>
                     <xs:appinfo>
                         <annox:annotate target="setter">
@@ -433,7 +433,7 @@
                     </xs:appinfo>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="pers-qty" type="xs:short">
+            <xs:element name="pers-qty" type="xs:int">
                 <xs:annotation>
                     <xs:appinfo>
                         <annox:annotate target="setter">@javax.xml.bind.annotation.XmlElement(name="pers-qty")
@@ -441,7 +441,7 @@
                     </xs:appinfo>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="staff-capacity" type="xs:byte">
+            <xs:element name="staff-capacity" type="xs:int">
                 <xs:annotation>
                     <xs:appinfo>
                         <annox:annotate target="setter">@javax.xml.bind.annotation.XmlElement(name="staff-capacity")
@@ -466,7 +466,7 @@
                     </xs:appinfo>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="commander-rank" type="xs:byte">
+            <xs:element name="commander-rank" type="xs:int">
                 <xs:annotation>
                     <xs:appinfo>
                         <annox:annotate target="setter">@javax.xml.bind.annotation.XmlElement(name="commander-rank")
@@ -553,7 +553,7 @@
                 </xs:annotation>
             </xs:element>
         </xs:sequence>
-        <xs:attribute name="id" type="xs:short" use="required">
+        <xs:attribute name="id" type="xs:int" use="required">
             <xs:annotation>
                 <xs:appinfo>
                     <annox:annotate target="setter">@javax.xml.bind.annotation.XmlAttribute(required=true,name="id")
@@ -610,7 +610,7 @@
                     </xs:appinfo>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="military-symbol" type="xs:byte">
+            <xs:element name="military-symbol" type="xs:int">
                 <xs:annotation>
                     <xs:appinfo>
                         <annox:annotate target="setter">@javax.xml.bind.annotation.XmlElement(name="military-symbol")
@@ -705,7 +705,7 @@
     </xs:complexType>
 
     <xs:complexType name="Equipment">
-        <xs:attribute name="equipment-object-id" type="xs:short">
+        <xs:attribute name="equipment-object-id" type="xs:int">
             <xs:annotation>
                 <xs:appinfo>
                     <annox:annotate target="setter">@javax.xml.bind.annotation.XmlAttribute(name="equipment-object-id")
@@ -720,7 +720,7 @@
                 </xs:appinfo>
             </xs:annotation>
         </xs:attribute>
-        <xs:attribute name="qty" type="xs:short">
+        <xs:attribute name="qty" type="xs:int">
             <xs:annotation>
                 <xs:appinfo>
                     <annox:annotate target="setter">@javax.xml.bind.annotation.XmlAttribute(name="qty")</annox:annotate>
@@ -736,7 +736,7 @@
     </xs:complexType>
 
     <xs:complexType name="AmmoQty">
-        <xs:attribute name="ammo-object-id" type="xs:short" use="required">
+        <xs:attribute name="ammo-object-id" type="xs:int" use="required">
             <xs:annotation>
                 <xs:appinfo>
                     <annox:annotate target="setter">
@@ -780,7 +780,7 @@
                 </xs:annotation>
             </xs:element>
             <xs:element name="size" type="VehicleSize"/>
-            <xs:element name="crew" type="xs:byte"/>
+            <xs:element name="crew" type="xs:int"/>
             <xs:element name="reliability" type="Proportion"/>
             <xs:element name="armaments" type="ArmamentList"/>
             <xs:element name="type" type="VehicleType"/>
@@ -802,7 +802,7 @@
                 </xs:annotation>
             </xs:element>
             <xs:element name="ronsonability" type="Proportion"/>
-            <xs:element name="max-gradient" type="xs:byte">
+            <xs:element name="max-gradient" type="xs:int">
                 <xs:annotation>
                     <xs:appinfo>
                         <annox:annotate target="setter">@javax.xml.bind.annotation.XmlElement(name="max-gradient")
@@ -810,7 +810,7 @@
                     </xs:appinfo>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="max-fording-depth" type="xs:byte">
+            <xs:element name="max-fording-depth" type="xs:int">
                 <xs:annotation>
                     <xs:appinfo>
                         <annox:annotate target="setter">
@@ -819,7 +819,7 @@
                     </xs:appinfo>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="max-trench-width" type="xs:byte">
+            <xs:element name="max-trench-width" type="xs:int">
                 <xs:annotation>
                     <xs:appinfo>
                         <annox:annotate target="setter">@javax.xml.bind.annotation.XmlElement(name="max-trench-width")
@@ -835,7 +835,7 @@
                     </xs:appinfo>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="personnel-capacity" type="xs:byte">
+            <xs:element name="personnel-capacity" type="xs:int">
                 <xs:annotation>
                     <xs:appinfo>
                         <annox:annotate target="setter">
@@ -897,7 +897,7 @@
             </xs:element>
             <xs:element name="armour" type="Armor"/>
         </xs:sequence>
-        <xs:attribute name="id" type="xs:short" use="required">
+        <xs:attribute name="id" type="xs:int" use="required">
             <xs:annotation>
                 <xs:appinfo>
                     <annox:annotate target="setter">@javax.xml.bind.annotation.XmlAttribute(required=true, name="id")
@@ -908,7 +908,7 @@
     </xs:complexType>
 
     <xs:complexType name="Picture">
-        <xs:attribute name="id" type="xs:short" use="required">
+        <xs:attribute name="id" type="xs:int" use="required">
             <xs:annotation>
                 <xs:appinfo>
                     <annox:annotate target="setter">@javax.xml.bind.annotation.XmlAttribute(required=true,name="id")
@@ -959,7 +959,7 @@
     </xs:complexType>
 
     <xs:complexType name="Armament">
-        <xs:attribute type="xs:short" name="equipment-object-id" use="required">
+        <xs:attribute type="xs:int" name="equipment-object-id" use="required">
             <xs:annotation>
                 <xs:appinfo>
                     <annox:annotate target="setter">@javax.xml.bind.annotation.XmlAttribute(required=true,
@@ -977,7 +977,7 @@
                 </xs:appinfo>
             </xs:annotation>
         </xs:attribute>
-        <xs:attribute type="xs:byte" name="qty" use="required">
+        <xs:attribute type="xs:int" name="qty" use="required">
             <xs:annotation>
                 <xs:appinfo>
                     <annox:annotate target="setter">@javax.xml.bind.annotation.XmlAttribute(required=true, name="qty")
@@ -1085,7 +1085,7 @@
                     </xs:appinfo>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="crew" type="xs:byte"/>
+            <xs:element name="crew" type="xs:int"/>
             <xs:element name="reliability" type="Proportion"/>
             <xs:element name="armaments" type="xs:string">
                 <xs:annotation>
@@ -1122,7 +1122,7 @@
                 </xs:annotation>
             </xs:element>
             <xs:element name="calibre" type="xs:float"/>
-            <xs:element name="muzzle-velocity" type="xs:short">
+            <xs:element name="muzzle-velocity" type="xs:int">
                 <xs:annotation>
                     <xs:appinfo>
                         <annox:annotate target="setter">@javax.xml.bind.annotation.XmlElement(name="muzzle-velocity")
@@ -1149,7 +1149,7 @@
                 </xs:annotation>
             </xs:element>
         </xs:sequence>
-        <xs:attribute name="id" type="xs:short" use="required">
+        <xs:attribute name="id" type="xs:int" use="required">
             <xs:annotation>
                 <xs:appinfo>
                     <annox:annotate target="setter">@javax.xml.bind.annotation.XmlAttribute(required=true,name="id")
@@ -1209,7 +1209,7 @@
                     </xs:appinfo>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="min-range" type="xs:byte">
+            <xs:element name="min-range" type="xs:int">
                 <xs:annotation>
                     <xs:appinfo>
                         <annox:annotate target="setter">@javax.xml.bind.annotation.XmlElement(name="min-range")
@@ -1225,7 +1225,7 @@
                     </xs:appinfo>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="burst-radius" type="xs:byte">
+            <xs:element name="burst-radius" type="xs:int">
                 <xs:annotation>
                     <xs:appinfo>
                         <annox:annotate target="setter">@javax.xml.bind.annotation.XmlElement(name="burst-radius")
@@ -1262,7 +1262,7 @@
     </xs:complexType>
 
     <xs:complexType name="AmmoLoad">
-        <xs:attribute name="object-id" type="xs:short" use="required">
+        <xs:attribute name="object-id" type="xs:int" use="required">
             <xs:annotation>
                 <xs:appinfo>
                     <annox:annotate target="setter">
@@ -1280,7 +1280,7 @@
                 </xs:appinfo>
             </xs:annotation>
         </xs:attribute>
-        <xs:attribute name="load" type="xs:short" use="required">
+        <xs:attribute name="load" type="xs:int" use="required">
             <xs:annotation>
                 <xs:appinfo>
                     <annox:annotate target="setter">
@@ -1328,7 +1328,7 @@
     </xs:complexType>
 
     <xs:complexType name="RangeItem">
-        <xs:attribute name="range" type="xs:short" use="required">
+        <xs:attribute name="range" type="xs:int" use="required">
             <xs:annotation>
                 <xs:appinfo>
                     <annox:annotate target="setter">
@@ -1444,7 +1444,7 @@
                     </xs:appinfo>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="max-range" type="xs:short">
+            <xs:element name="max-range" type="xs:int">
                 <xs:annotation>
                     <xs:appinfo>
                         <annox:annotate target="setter">
@@ -1455,7 +1455,7 @@
             </xs:element>
             <xs:element name="gain" type="xs:float"/>
         </xs:sequence>
-        <xs:attribute name="id" type="xs:short" use="required">
+        <xs:attribute name="id" type="xs:int" use="required">
             <xs:annotation>
                 <xs:appinfo>
                     <annox:annotate target="setter">@javax.xml.bind.annotation.XmlAttribute(required=true,name="id")
@@ -1522,7 +1522,7 @@
                     </xs:appinfo>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="min-order-qty" type="xs:short">
+            <xs:element name="min-order-qty" type="xs:int">
                 <xs:annotation>
                     <xs:appinfo>
                         <annox:annotate target="setter">
@@ -1541,7 +1541,7 @@
                 </xs:annotation>
             </xs:element>
         </xs:sequence>
-        <xs:attribute name="id" type="xs:short" use="required">
+        <xs:attribute name="id" type="xs:int" use="required">
             <xs:annotation>
                 <xs:appinfo>
                     <annox:annotate target="setter">@javax.xml.bind.annotation.XmlAttribute(required=true,name="id")
@@ -1610,7 +1610,7 @@
                 </xs:annotation>
             </xs:element>
         </xs:sequence>
-        <xs:attribute name="id" type="xs:short" use="required">
+        <xs:attribute name="id" type="xs:int" use="required">
             <xs:annotation>
                 <xs:appinfo>
                     <annox:annotate target="setter">@javax.xml.bind.annotation.XmlAttribute(required=true,name="id")
@@ -1699,7 +1699,7 @@
     </xs:simpleType>
 
     <xs:complexType name="Insignia">
-        <xs:attribute name="id" type="xs:short" use="required">
+        <xs:attribute name="id" type="xs:int" use="required">
             <xs:annotation>
                 <xs:appinfo>
                     <annox:annotate target="setter">@javax.xml.bind.annotation.XmlAttribute(required=true,name="id")
@@ -1748,7 +1748,7 @@
     </xs:complexType>
 
     <xs:complexType name="RGBColor">
-        <xs:attribute name="red" type="xs:short">
+        <xs:attribute name="red" type="xs:int">
             <xs:annotation>
                 <xs:appinfo>
                     <annox:annotate target="setter">@javax.xml.bind.annotation.XmlAttribute(name="red")
@@ -1756,7 +1756,7 @@
                 </xs:appinfo>
             </xs:annotation>
         </xs:attribute>
-        <xs:attribute name="green" type="xs:short">
+        <xs:attribute name="green" type="xs:int">
             <xs:annotation>
                 <xs:appinfo>
                     <annox:annotate target="setter">@javax.xml.bind.annotation.XmlAttribute(name="green")
@@ -1764,7 +1764,7 @@
                 </xs:appinfo>
             </xs:annotation>
         </xs:attribute>
-        <xs:attribute name="blue" type="xs:short">
+        <xs:attribute name="blue" type="xs:int">
             <xs:annotation>
                 <xs:appinfo>
                     <annox:annotate target="setter">@javax.xml.bind.annotation.XmlAttribute(name="blue")
